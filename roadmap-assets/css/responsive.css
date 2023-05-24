@@ -1,0 +1,167 @@
+/********************** Media Query *********************************/
+@media (max-width:1680px) {
+
+}
+
+@media (max-width: 1280px) {
+.Instant_Empire:before {
+    top: -23vh;
+}
+
+}
+
+
+@media (max-width: 1100px) {
+.page_heading h1 {
+    font-size: 70px;
+    line-height: 70px;
+}
+.day1_img img {
+    max-width: 590px;
+    width: 100%;
+}
+.day_content h3 {
+    font-size: 32px;
+}
+.day_content h2 {
+    font-size: 46px;
+    line-height: 42px;
+}
+.infinity_skill:before {
+    border-top: 180px solid black;
+    border-right: 225px solid transparent;
+}
+.convert_audience:before {
+    top: -11vh;
+}
+
+}
+
+
+
+@media (max-width: 991px){
+.day_content.caption_day_right {
+    position: relative;
+}
+.day1_img img {
+    max-width: 500px;
+    width: 100%;
+}
+.day_content h3 {
+    font-size: 24px;
+}
+.day_content h2 {
+    font-size: 40px;
+    line-height: 30px;
+}
+.lead_txt_day {
+    font-size: 16px;
+    line-height: 22px;
+    padding-right: 0;
+}
+.day1_img {
+    margin-top: -125px;
+}
+.page_heading h1 {
+    font-size: 60px;
+    line-height: 60px;
+}
+.infinity_skill:before {
+    border-top: 160px solid black;
+    border-right: 190px solid transparent;
+}
+.day_content.caption_day_left {
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+.infinity_skill {
+    padding-top: 200px;
+}
+.day2_img {
+    margin-top: -330px;
+}
+.convert_audience:before {
+    top: -6vh;
+}
+.day3_img {
+    margin-top: -100px;
+}
+.day5_img {
+    margin-top: -250px;
+}
+.Instant_Empire:before {
+    top: -10vh;
+}
+
+}
+
+
+@media (max-width: 767px) {
+.page_heading {
+    padding: 100px 0px;
+}
+.lead_txt_day {
+    display: none;
+}
+.custom_btn {
+    margin-top: 15px;
+}
+.infinite_income {
+    padding-top: 100px;
+}
+.profit_online {
+    padding-top: 50px;
+}
+
+.Instant_Empire:before {
+    top: -20vh;
+}
+.convert_audience:before {
+    top: -12vh;
+}
+.day1_img, .day2_img, .day3_img, .day4_img, .day5_img, .day6_img, .day7_img {
+    margin-top: 40px;
+}
+}
+
+
+
+@media (max-width: 520px){
+.Instant_Empire:before {
+    height: 30vh;
+    top: -10vh;
+}
+.convert_audience:before {
+    top: -4vh;
+}
+.infinity_skill:before {
+    border-top: 140px solid black;
+    border-right: 160px solid transparent;
+}
+.page_heading h1 {
+    font-size: 36px;
+    line-height: 36px;
+}
+.page_heading {
+    padding: 70px 0px;
+}
+
+}
+
+@media (max-width: 375px){
+.infinity_skill:before {
+    border-top: 120px solid black;
+    border-right: 140px solid transparent;
+}
+
+}
+
+
+@media (max-width: 360px){
+.infinity_skill:before {
+    border-top: 100px solid black;
+    border-right: 120px solid transparent;
+}
+}

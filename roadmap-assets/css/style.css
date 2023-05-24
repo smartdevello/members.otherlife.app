@@ -1,0 +1,341 @@
+body, html{
+    font-size:16px;
+    line-height:20px;
+    font-family: 'Hind', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+body *{
+    outline: none;
+}
+/*h1, h2, h3, h4, h5, h6{
+    margin-top:0;
+    font-family: 'Hind', sans-serif;
+}*/
+img{
+    max-width:100%;
+}
+*{
+    outline:none;
+}
+button:focus {
+    outline: none;
+}
+a:hover{
+    text-decoration: none;
+}
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+ul{
+    list-style:none;
+    padding-left:0;
+    margin-bottom: 0;
+}
+section{
+    position: relative;
+}
+img{
+    max-width: 100%;
+}
+.color_white{
+    color: #fff;
+}
+.color_light_grey{
+    color: #e0e0e0;
+}
+.color_grey{
+    color: #757575;
+}
+.color_black{
+    color: #000;
+}
+.border_color_black{
+    border-color: #000 !important;
+}
+.border_color_white{
+    border-color: #fff;
+}
+.main_wrap{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+}
+.page_heading {
+    background: #000;
+    padding: 120px 0px;
+}
+.page_heading h1 {
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: 90px;
+    margin-bottom: 0;
+    line-height: 90px;
+}
+.infinite_income {
+    background: #000;
+    padding-top: 120px;
+    margin-top: -1px;
+}
+.day1_img img {
+    max-width: 720px;
+    width: 100%;
+}
+.day_content h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 42px;
+    line-height: 36px;
+}
+.day_content h3 {
+    font-size: 30px;
+    font-weight: 600;
+}
+.bg_light_grey_btn{
+    background: transparent;
+    color: #fff;
+    transition: all 0.3s;
+    border: 1px solid #fff;
+}
+.bg_light_grey_btn:hover, .bg_light_grey_btn:focus {
+   /* background: #fff;*/
+   /* color: #fff;*/
+   color: #fff;
+    text-decoration: none;
+}
+.bg_black_btn{
+         background: #fff;
+    color: #000;
+    transition: all 0.3s;
+    border: 1px solid #000;
+}
+.bg_black_btn:hover, .bg_black_btn:focus {
+        background: transparent;
+    color: #000;
+    text-decoration: none;
+}
+.custom_btn {    
+    /*font-size: 22px;
+    min-width: 190px;
+    display: inline-block;
+    text-align: center;
+    padding: 15px 15px 12px;
+    line-height: 28px;*/
+    display: inline-block;
+    font-weight: 500;
+    margin: 0;
+    padding: 12px 30px;
+    font-family: Hind, sans-serif;
+    line-height: 20px;
+    font-size: 15px;
+}
+.lead_txt_day {
+    border-left: 3px solid #fff;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 20px 0px 35px;
+    padding-right: 20px;
+}
+.day_content {
+    position: relative;
+    z-index: 9;
+}
+.day_content.caption_day_right{
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 9;
+    right: 12%;
+}
+.infinity_skill {
+    position: relative;
+    padding-top: 150px;
+}
+.day_content {
+    padding-left: 12%;
+}
+.day_content.caption_day_left {
+    position: absolute;
+    left: 0;
+    top: 200px;
+    z-index: 9;
+}
+.infinity_skill:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 270px solid black;
+    border-right: 325px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.profit_online {
+    position: relative;
+    background: #000;
+    margin-top: -1px;
+}
+.profit_online .caption_day_left {
+    top: 0px;
+}
+.infinite_audience {
+    position: relative;
+    background: #fff;
+    padding-top: 100px;
+    margin-top: -1px;
+}
+.day4_img {
+    margin-top: -50px;
+}
+.convert_audience{
+    position: relative;
+    padding-top: 100px;
+    background:#000;
+}
+.day2_img, .day3_img, .day4_img, .day5_img, .day6_img, .day7_img {
+    position: relative;
+}
+.day2_img img, .day3_img img, .day4_img img, .day5_img img, .day6_img img, .day7_img img {
+    width: 100%;
+}
+.Instant_Empire {
+    position: relative;
+    padding-top: 70px;
+    background: #fff;
+}
+.complete_shift{
+    position: relative;
+    background: #000;
+    padding-top: 100px;
+    margin-top: -1px;
+}
+.convert_audience:before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: 0;
+    height: 30vh;
+    background: black;
+    transform: rotate(-6deg);
+    top: -15vh;
+    width: 120%;
+}
+.Instant_Empire:before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: 0;
+    height: 46vh;
+    background: #fff;
+    transform: rotate(-13deg);
+    top: -22vh;
+    width: 120%;
+}
+.convert_audience .caption_day_left {
+    top: 100px;
+}
+
+/*.day_content.caption_day_right.dayone {
+   
+    top: -50px!important;
+
+    }*/
+section.profit_online .day_content {
+    padding-left: 18%!important;
+}
+
+section.complete_shift .day_content {
+    right: 12%!important;
+}
+section.convert_audience .day_content.caption_day_left {
+left: 0px;
+right: 12%!important;
+}
+/********** Pricing page css *************/
+.pricing_section {
+    position: relative;
+    background: url(../images/pricing_bg.png) #f7f9fa;
+    padding-top: 80px;
+    padding-bottom: 150px;
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.subscribe_list ul li img {
+    max-width: 20px;
+    margin-right: 6px;
+    margin-top: -4px;
+}
+.pricing-box {
+    background: #fbfbfb;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.04);
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    margin-top: 80px;
+    transition: all 0.3s;
+}
+.price_box {
+    margin-bottom: 20px;
+    font-size: 117px;
+    font-weight: bold;
+    line-height: 117px;
+    color: #000;
+}
+.price_box sub {
+    font-weight: 400;
+    font-size: 26px;
+    bottom: 0;
+    color: #e0e0e0;
+}
+.subscribe_list {
+    margin-bottom: 20px;
+}
+.pricing_section_header h2 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 58px;
+    color: #000;
+}
+.pricing_section_header p {
+    color: #878787;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+}
+.pricing-head h3 {
+    color: #d8d8d8;
+    font-size: 62px;
+    font-weight: 700;
+    line-height: 62px;
+    transition: all 0.3s;
+}
+.subscribe_list h5 {
+    font-size: 25px;
+    color: #757575;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.subscribe_list ul li {
+    margin-bottom: 15px;
+    color: #969696;
+    font-size: 25px;
+    line-height: 25px;
+}
+.pricing-box:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    background: #fff;
+}
+.pricing-box:hover .pricing-head h3 {
+    color: #959596;
+}
+
+.page-id-855 div#content {
+   
+    padding: 0px 0!important;
+}
