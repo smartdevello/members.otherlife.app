@@ -81,7 +81,10 @@ class MentorCPT
     public function select_mentor($request)
     {
         $payload = $request->get_json_params();
-        $mentor_id = $payload['customData']['Mentor ID'];
+        // error_log('=====select mentor=========');
+        // error_log(print_r($payload, true));
+        // error_log('===========================');
+        $mentor_id = $payload['customData']['mentor_id'];
         $user = get_user_by('email', $payload['email']);
         update_user_meta($user->ID, 'mentor_id', $mentor_id);
 

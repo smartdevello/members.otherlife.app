@@ -272,6 +272,9 @@ if (function_exists('is_plugin_active') && is_plugin_active('learndash-course-gr
             }
 
         }
+        $title = the_title("", "", false);
+        if ($title === "7 Day Shift")
+            $taskUrl = "/day1";
     }
 
     ?>
@@ -452,9 +455,15 @@ $tags = get_the_tags(get_the_ID());
 									}
 
 									if ($progress['percentage'] >= 1 && $progress['percentage'] < 100) {
-										echo '<a href="' . esc_attr(learndash_get_step_permalink($incompletedId )) . '">Resume</a>';
+                                        if ($title == "7 Day Shift") {
+                                            echo '<a href="/day1">Resume</a>';
+                                        } else
+                                            echo '<a href="' . esc_attr(learndash_get_step_permalink($incompletedId)) . '">Resume</a>';
 									} else if ($progress['percentage'] === 0) {
-										echo '<a href="' . esc_attr(learndash_get_step_permalink($incompletedId )) . '">Start</a>';
+                                        if ($title === "7 Day Shift") {
+                                            echo '<a href="/day1">Start</a>';
+                                        } else
+                                            echo '<a href="' . esc_attr(learndash_get_step_permalink($incompletedId)) . '">Start</a>';
 									}
 								}						
     ?>
