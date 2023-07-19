@@ -7,7 +7,7 @@
  * @package LearnDash\Templates\LD30
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 3.0.0
  */
 
-$context = ( isset( $context ) ? $context : 'learndash' );
+$context = (isset($context) ? $context : 'learndash');
 
 /**
  * Fires before the progress bar.
@@ -27,7 +27,7 @@ $context = ( isset( $context ) ? $context : 'learndash' );
  * @param int $course_id Course ID.
  * @param int $user_id   User ID.
  */
-do_action( 'learndash-progress-bar-before', $course_id, $user_id );
+do_action('learndash-progress-bar-before', $course_id, $user_id);
 
 /**
  * Fires before the progress bar for any context.
@@ -40,21 +40,21 @@ do_action( 'learndash-progress-bar-before', $course_id, $user_id );
  * @param int $course_id Course ID.
  * @param int $user_id   User ID.
  */
-do_action( 'learndash-' . $context . '-progress-bar-before', $course_id, $user_id );
+do_action('learndash-' . $context . '-progress-bar-before', $course_id, $user_id);
 
 /**
  * In the topic context we're measuring progress through a lesson, not the course itself
  *
  * @var [type]
  */
-if ( 'topic' !== $context ) {
+if ('topic' !== $context) {
 
 	$progress_args = apply_filters(
 		'learndash_progress_args',
 		array(
-			'array'     => true,
+			'array' => true,
 			'course_id' => $course_id,
-			'user_id'   => $user_id,
+			'user_id' => $user_id,
 		),
 		$course_id,
 		$user_id,
@@ -71,42 +71,44 @@ if ( 'topic' !== $context ) {
 	 *
 	 * @param string $progress_markup The HTML template of users course/lesson progress
 	 */
-	$progress = apply_filters( 'learndash-' . $context . '-progress-stats', learndash_course_progress( $progress_args ) );
+	$progress = apply_filters('learndash-' . $context . '-progress-stats', learndash_course_progress($progress_args));
 
-	if ( empty( $progress ) ) {
+	if (empty($progress)) {
 		$progress = array(
 			'percentage' => 0,
-			'completed'  => 0,
-			'total'      => 0,
+			'completed' => 0,
+			'total' => 0,
 		);
 	}
 } else {
 	global $post;
 
 	/** This filter is documented in themes/ld30/templates/modules/progress.php */
-	$progress = apply_filters( 'learndash-' . $context . '-progress-stats', learndash_lesson_progress( $post, $course_id ) );
+	$progress = apply_filters('learndash-' . $context . '-progress-stats', learndash_lesson_progress($post, $course_id));
 }
 
-if ( $progress ) :
+$title = get_the_title();
+
+if ($progress) :
 	/**
 	 * This is just here for reference
-	 */ ?>
+	 */?>
 	<div class="ld-progress
 	<?php
-	if ( 'course' === $context ) :
+	if ('course' === $context) :
 		?>
 		 ld-progress-inline<?php endif; ?>">
-		<?php if ( 'focus' === $context ) : ?>
+		<?php if ('focus' === $context) : ?>
 			<div class="ld-progress-wrap">
-		<?php endif; ?>
+			<?php endif; ?>
 			<div class="ld-progress-heading">
-				<?php if ( 'topic' === $context ) : ?>
+				<?php if ('topic' === $context) : ?>
 					<div class="ld-progress-label">
 						<?php
 						echo sprintf(
 							// translators: placeholder: Lesson Progress
-							esc_html_x( '%s Progress', 'Placeholder: Lesson Progress', 'buddyboss-theme' ),
-							LearnDash_Custom_Label::get_label( 'lesson' ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Method escapes output
+							esc_html_x('%s Progress', 'Placeholder: Lesson Progress', 'buddyboss-theme'),
+							LearnDash_Custom_Label::get_label('lesson') // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Method escapes output
 						);
 						?>
 					</div>
@@ -114,52 +116,54 @@ if ( $progress ) :
 			</div>
 
 			<div class="ld-progress-bar">
-				<div class="ld-progress-bar-percentage ld-secondary-background" style="<?php echo esc_attr( 'width:' . $progress['percentage'] . '%' ); ?>"></div>
+				<div class="ld-progress-bar-percentage ld-secondary-background"
+					style="<?php echo esc_attr('width:' . $progress['percentage'] . '%'); ?>"></div>
 			</div>
 			<div class="ld-progress-stats">
 				<div class="ld-progress-percentage ld-secondary-color course-completion-rate">
 					<?php
 					echo sprintf(
 						// translators: placeholder: Progress percentage
-						esc_html_x( '%s%% Complete', 'placeholder: Progress percentage', 'buddyboss-theme' ),
-						esc_html( $progress['percentage'] )
+						esc_html_x('%s%% Complete', 'placeholder: Progress percentage', 'buddyboss-theme'),
+						esc_html($progress['percentage'])
 					);
 
 					?>
 				</div>
-				<div class="ld-progress-steps">
+				<div class="ld-progress-steps" style="   min-height: 14px;">
 					<?php
-					if ( 'course' === $context || 'focus' === $context ) :
-						$course_args     = array(
-							'course_id'     => $course_id,
-							'user_id'       => $user_id,
-							'post_id'       => $course_id,
+					if ('course' === $context || 'focus' === $context) :
+						$course_args = array(
+							'course_id' => $course_id,
+							'user_id' => $user_id,
+							'post_id' => $course_id,
 							'activity_type' => 'course',
 						);
-						$course_activity = learndash_get_user_activity( $course_args );
-						if ( ! empty( $course_activity->activity_updated ) && get_post_type() === 'sfwd-courses' ) {
-							$last_activity     = ! empty( $course_activity->activity_updated ) ? $course_activity->activity_updated : $course_activity->activity_started;
-							$date_time_display = get_date_from_gmt( date( 'Y-m-d H:i:s', $last_activity ), 'Y-m-d H:i:s' );
+						$course_activity = learndash_get_user_activity($course_args);
+						if (! empty($course_activity->activity_updated) && get_post_type() === 'sfwd-courses') {
+							$last_activity = ! empty($course_activity->activity_updated) ? $course_activity->activity_updated : $course_activity->activity_started;
+							$date_time_display = get_date_from_gmt(date('Y-m-d H:i:s', $last_activity), 'Y-m-d H:i:s');
 							echo sprintf(
-									// translators: Last activity date in infobar.
-								esc_html_x( 'Last activity on %s', 'Last activity date in infobar', 'buddyboss-theme' ),
-								date_i18n( get_option( 'date_format' ), strtotime( $date_time_display ) )
+								// translators: Last activity date in infobar.
+								esc_html_x('Last activity on %s', 'Last activity date in infobar', 'buddyboss-theme'),
+								date_i18n(get_option('date_format'), strtotime($date_time_display))
 							);
 						} else {
-							echo sprintf(
-								// translators: placeholders: completed steps, total steps.
-								esc_html_x( '%1$d/%2$d Steps', 'placeholders: completed steps, total steps', 'buddyboss-theme' ),
-								esc_html( $progress['completed'] ),
-								esc_html( $progress['total'] )
-							);
+							if ($title !== "7 Day Shift")
+								echo sprintf(
+									// translators: placeholders: completed steps, total steps.
+									esc_html_x('%1$d/%2$d Steps', 'placeholders: completed steps, total steps', 'buddyboss-theme'),
+									esc_html($progress['completed']),
+									esc_html($progress['total'])
+								);
 						}
 					endif;
 					?>
 				</div>
 			</div> <!--/.ld-progress-stats-->
-			<?php if ( 'focus' === $context ) : ?>
-				</div> <!--/.ld-progress-wrap-->
-			<?php endif; ?>
+			<?php if ('focus' === $context) : ?>
+			</div> <!--/.ld-progress-wrap-->
+		<?php endif; ?>
 	</div> <!--/.ld-progress-->
 	<?php
 endif;
@@ -172,7 +176,7 @@ endif;
  * @param int $course_id Course ID.
  * @param int $user_id   User ID.
  */
-do_action( 'learndash-progress-bar-after', $course_id, $user_id );
+do_action('learndash-progress-bar-after', $course_id, $user_id);
 
 /**
  * Fires before the course steps for any context.
@@ -185,4 +189,4 @@ do_action( 'learndash-progress-bar-after', $course_id, $user_id );
  * @param int $course_id Course ID.
  * @param int $user_id   User ID.
  */
-do_action( 'learndash-' . $context . '-progress-bar-after', $course_id, $user_id );
+do_action('learndash-' . $context . '-progress-bar-after', $course_id, $user_id);

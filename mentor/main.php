@@ -36,25 +36,48 @@ class MentorCPT
         ));
         register_rest_route("members/v1", "getMentorSection", array(
             "methods" => "GET",
-            "callback" => array($this, "getMentorSection"),
+            "callback" => array($this, "api_getMentorSection"),
             "permission_callback" => "__return_true"
         ));
+    }
+    public function api_getMentorSection()
+    {
+        $mentor_id = get_user_meta(wp_get_current_user()->ID, 'mentor_id', true);
+        if (empty($mentor_id))
+            $mentor_id = '9968';
+
+        // $field = $atts['field'];
+
+        $data = array(
+            'ID' => $mentor_id,
+            'name' => get_post_field("name", $mentor_id),
+            'email' => get_post_field("email", $mentor_id),
+            'message' => get_post_field("message", $mentor_id),
+            'picture_url' => get_post_field("picture_url", $mentor_id),
+            'facebook_url' => get_post_field("facebook_url", $mentor_id),
+            'call_url' => get_post_field('call_url', $mentor_id),
+            'infinite_link' => get_post_field('infinite_link', $mentor_id),
+            'test' => '3',
+        );
+        return $data;
     }
     public function getMentorSection($atts)
     {
         $mentor_id = get_user_meta(wp_get_current_user()->ID, 'mentor_id', true);
         if (empty($mentor_id))
-            $mentor_id = '9821';
+            $mentor_id = '9968';
 
         $field = $atts['field'];
 
         $data = array(
             'ID' => $mentor_id,
-            'name' => get_field("name", $mentor_id),
-            'email' => get_field("email", $mentor_id),
-            'message' => get_field("message", $mentor_id),
-            'picture_url' => get_field("picture_url", $mentor_id),
-            'facebook_url' => get_field("facebook_url", $mentor_id),
+            'name' => get_post_field("name", $mentor_id),
+            'email' => get_post_field("email", $mentor_id),
+            'message' => get_post_field("message", $mentor_id),
+            'picture_url' => get_post_field("picture_url", $mentor_id),
+            'facebook_url' => get_post_field("facebook_url", $mentor_id),
+            'call_url' => get_post_field('call_url', $mentor_id),
+            'infinite_link' => get_post_field('infinite_link', $mentor_id),
         );
         return $data[$field];
     }
@@ -69,11 +92,13 @@ class MentorCPT
         foreach ($posts as $post) {
             $data[] = array(
                 'ID' => $post->ID,
-                'name' => get_field("name", $post->ID),
-                'email' => get_field("email", $post->ID),
-                'message' => get_field("message", $post->ID),
-                'picture_url' => get_field("picture_url", $post->ID),
-                'facebook_url' => get_field("facebook_url", $post->ID),
+                'name' => get_post_field("name", $post->ID),
+                'email' => get_post_field("email", $post->ID),
+                'message' => get_post_field("message", $post->ID),
+                'picture_url' => get_post_field("picture_url", $post->ID),
+                'facebook_url' => get_post_field("facebook_url", $post->ID),
+                'call_url' => get_post_field('call_url', $post->ID),
+                'infinite_link' => get_post_field('infinite_link', $post->ID),
             );
         }
         return $data;
